@@ -1,0 +1,57 @@
+COMO USAR OS METODOS NA API DE CONTATOS E LIGAÇÕES:
+
+POSTMAN
+CONTATOS:
+CRIAR:
+POST: http://127.0.0.1:5000/contatos
+
+{
+  "nome": "Ana",
+  "sobrenome": "Costa",
+  "apelido": "Aninha",
+  "telefone": "91234-5678",
+  "email": "ana@example.com",
+  "ddd": "31"
+}
+
+LISTAR:
+GET:http://127.0.0.1:5000/contatos
+
+EDITAR:
+PUT: http://127.0.0.1:5000/contatos/1
+{
+  "nome": "Ana Clara",
+  "apelido": "Clara"
+}
+
+APAGAR:
+DELETE: http://127.0.0.1:5000/contatos/1
+
+
+LIGACOES:
+CRIAR:
+POST: http://127.0.0.1:5000/ligacoes
+{
+  "contato_id": 2,
+  "duracao_segundos": 200,
+  "tipo": "saida"
+}
+
+LISTAR:
+GET: http://127.0.0.1:5000/ligacoes/2
+
+
+EDITAR:
+PUT:http://127.0.0.1:5000/ligacoes/1
+{
+  "duracao_segundos": 300,
+  "tipo": "entrada"
+}
+
+
+DELETAR
+DELETE: http://127.0.0.1:5000/ligacoes/1
+
+
+
+
