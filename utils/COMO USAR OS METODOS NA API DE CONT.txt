@@ -5,14 +5,14 @@ CONTATOS:
 CRIAR:
 POST: http://127.0.0.1:5000/contatos
 
-{
-  "nome": "Ana",
-  "sobrenome": "Costa",
-  "apelido": "Aninha",
-  "telefone": "91234-5678",
-  "email": "ana@example.com",
-  "ddd": "31"
-}
+  {
+    "nome": "Ana",
+    "sobrenome": "Costa",
+    "apelido": "Aninha",
+    "telefone": "91234-5678",
+    "email": "ana@example.com",
+    "ddd": "31"
+  }
 
 LISTAR:
 GET:http://127.0.0.1:5000/contatos
