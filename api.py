@@ -41,7 +41,7 @@ class HistoricoLigacao(db.Model):
     duracao_segundos = db.Column(db.Integer, nullable=False)
     tipo = db.Column(db.String(10), nullable=False)  # "entrada" ou "saida"
 
-
+# CONTATOS ===================================================================================================================
 # CADASTRO DE CONTATOS.
 
 @app.route("/contatos", methods=["POST"])
@@ -76,41 +76,26 @@ def listar_contatos():
         } for c in contatos
     ])
 
-# CRIAR LIGAÇÕES.
+# listar contatos por id
 
-@app.route("/ligacoes", methods=["POST"])
-def registrar_ligacao():
-    dados = request.json
-    ligacao = HistoricoLigacao(
-        contato_id=dados["contato_id"],
-        duracao_segundos=dados["duracao_segundos"],
-        tipo=dados["tipo"]
-    )
-    db.session.add(ligacao)
-    db.session.commit()
-    return jsonify({"mensagem": "Ligação registrada com sucesso!"}), 201
-
-# LISTAR LIGAÇÕES + ID.
-# Necessario o id do contato para pesquisa especifica do contato
-
-@app.route("/ligacoes/<int:contato_id>", methods=["GET"])
-def listar_ligacoes(contato_id):
-    ligacoes = HistoricoLigacao.query.filter_by(contato_id=contato_id).all()
-    return jsonify([
-        {
-            "id": l.id,
-            "contato_id": l.contato_id,
-            "data_hora": l.data_hora.strftime("%Y-%m-%d %H:%M:%S"),
-            "duracao_segundos": l.duracao_segundos,
-            "tipo": l.tipo
-        } for l in ligacoes
-    ])
+@app.route("/contatos/<int:id>", methods=["GET"])
+def listar_contato(id):
+    contato = Contato.query.get_or_404(id)
+    return jsonify({
+        "id": contato.id,
+        "nome": contato.nome,
+        "sobrenome": contato.sobrenome,
+        "apelido": contato.apelido,
+        "telefone": contato.telefone,
+        "email": contato.email,
+        "ddd": contato.ddd
+    })
 
 # EDITAR CONTATO
 
 @app.route("/contatos/<int:id>", methods=["PUT"])
 def editar_contato(id):
-    contato = Contato.query.get_or_404(id)  # 404 se não existir
+    contato = Contato.query.get_or_404(id)  # 404 se nao existir
     dados = request.json
 
     contato.nome = dados.get("nome", contato.nome)
@@ -131,6 +116,53 @@ def apagar_contato(id):
     db.session.delete(contato)
     db.session.commit()
     return jsonify({"mensagem": f"Contato {id} apagado com sucesso!"})
+
+# LIGAÇÕES ==========================================================================================================
+# CRIAR LIGAÇÕES.
+
+@app.route("/ligacoes", methods=["POST"])
+def registrar_ligacao():
+    dados = request.json
+    ligacao = HistoricoLigacao(
+        contato_id=dados["contato_id"],
+        duracao_segundos=dados["duracao_segundos"],
+        tipo=dados["tipo"]
+    )
+    db.session.add(ligacao)
+    db.session.commit()
+    return jsonify({"mensagem": "Ligação registrada com sucesso!"}), 201
+
+# LISTAR LIGAÇÕES + ID.
+# Necessario o id do contato para pesquisa especifica do contato
+
+@app.route("/ligacoes/<int:contato_id>", methods=["GET"])
+def listar_ligacoes_id(contato_id):
+    ligacoes = HistoricoLigacao.query.filter_by(contato_id=contato_id).all()
+    return jsonify([
+        {
+            "id": l.id,
+            "contato_id": l.contato_id,
+            "data_hora": l.data_hora.strftime("%Y-%m-%d %H:%M:%S"),
+            "duracao_segundos": l.duracao_segundos,
+            "tipo": l.tipo
+        } for l in ligacoes
+    ])
+
+# LISTAR TODAS AS LIGAÇÕES
+
+@app.route("/ligacoes", methods=["GET"])
+def listar_ligacoes():
+    ligacoes = HistoricoLigacao.query.all()
+    return jsonify([
+        {
+            "id": l.id,
+            "contato_id": l.contato_id,
+            "data_hora": l.data_hora.strftime("%Y-%m-%d %H:%M:%S"),
+            "duracao_segundos": l.duracao_segundos,
+            "tipo": l.tipo
+        } for l in ligacoes
+    ])
+
 
 # EDITAR LIGAÇÕES + ID
 
