@@ -144,9 +144,6 @@ pip install flask flask_sqlalchemy
 3. Execute a aplicação
 python api.py
 
-A API estará disponível em:
-http://localhost:5000
-
 ________________________________________________________________________________
 
 Observações
