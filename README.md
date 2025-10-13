@@ -8,6 +8,26 @@ https://<seu-projeto-no-render>.onrender.com
 
 
 Funcionalidades da API:
+REGISTRO
+
+post /registro -> criar um registro
+body(json):
+
+{
+    "nome": "Joaquim",
+    "email": "joaquim@email.com"
+}
+
+LOGIN
+
+post /login -> fazer login para receber um token
+body(json) 
+{
+    "email": "joaquim@email.com"
+}
+
+OBS* QUANDO FOR USAR UMA REQUISIÇÃO DEVE-SE COLOCAR "Authorization: Bearer <token>" NO HEADER
+
 
 CONTATOS
 
