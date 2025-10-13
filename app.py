@@ -249,6 +249,10 @@ def apagar_ligacao(usuario, id):
     db.session.commit()
     return jsonify({"mensagem": f"Ligação {id} apagada com sucesso!"})
 
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"mensagem": "API rodando!"})
+
 # =============================================================
 # ERROS
 # =============================================================
@@ -264,6 +268,7 @@ def erro_requisicao_invalida(e):
 @app.errorhandler(500)
 def erro_interno(e):
     return jsonify({"erro": "Erro interno do servidor"}), 500
+    
 
 # =============================================================
 # MAIN
@@ -274,3 +279,5 @@ if __name__ == "__main__":
         db.create_all()
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
+
