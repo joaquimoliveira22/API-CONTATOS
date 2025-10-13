@@ -64,7 +64,7 @@ A API utiliza autenticação via **Bearer Token**.
 
 ---
 
-## 📇 Contatos
+## Contatos
 
 ### **POST /contatos** → Criar um novo contato
 
