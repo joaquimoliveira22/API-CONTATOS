@@ -1,11 +1,11 @@
-# 📞 API de Contatos e Ligações
+#  API de Contatos e Ligações
 
 Esta API gerencia **contatos telefônicos** e o **histórico de ligações** associados a cada contato.  
 Foi desenvolvida com **Flask + SQLAlchemy** e está hospedada no **Render**.
 
 ---
 
-## 🌐 URL Base
+##  URL Base
 
 ```
 https://<seu-projeto-no-render>.onrender.com
@@ -13,13 +13,13 @@ https://<seu-projeto-no-render>.onrender.com
 
 ---
 
-## ⚙️ Funcionalidades da API
+##  Funcionalidades da API
 
-### 🔐 Autenticação
+###  Autenticação
 
 A API utiliza autenticação via **Bearer Token**.
 
-> ⚠️ Para acessar qualquer rota protegida, inclua o seguinte header:
+>  Para acessar qualquer rota protegida, inclua o seguinte header:
 >
 > ```
 > Authorization: Bearer <token>
@@ -27,9 +27,9 @@ A API utiliza autenticação via **Bearer Token**.
 
 ---
 
-## 🧾 Endpoints
+##  Endpoints
 
-### 🧍 Registro e Login
+### Registro e Login
 
 #### **POST /registro** → Criar um novo usuário
 
@@ -152,11 +152,11 @@ GET /contatos/1
 {"mensagem": "Contato 1 apagado com sucesso!"}
 ```
 
-> 💡 Ao deletar um contato, **todas as ligações associadas** são removidas automaticamente.
+>  Ao deletar um contato, **todas as ligações associadas** são removidas automaticamente.
 
 ---
 
-## ☎️ Ligações
+##  Ligações
 
 ### **POST /ligacoes** → Registrar uma nova ligação
 
@@ -241,15 +241,15 @@ GET /ligacoes/1
 
 ---
 
-## 🧰 Como Executar o Projeto Localmente
+##  Como Executar o Projeto Localmente
 
-### 1️⃣ Clone o repositório
+### 1️ Clone o repositório
 ```bash
 git clone https://github.com/joaquimoliveira22/API-CONTATOS.git
 cd API-CONTATOS
 ```
 
-### 2️⃣ Instale as dependências
+### 2️ Instale as dependências
 ```bash
 pip install -r requirements.txt
 ```
@@ -259,7 +259,7 @@ pip install -r requirements.txt
 pip install flask flask_sqlalchemy
 ```
 
-### 3️⃣ Execute a aplicação
+### 3️ Execute a aplicação
 ```bash
 python api.py
 ```
@@ -271,7 +271,7 @@ http://localhost:5000https://api-contatos-1.onrender.com
 
 ---
 
-## 🗒️ Observações
+##  Observações
 
 - Os campos **telefone** e **email** são **únicos** por contato.  
 - Ao **deletar um contato**, todas as **ligações relacionadas** são excluídas automaticamente.  
@@ -279,7 +279,7 @@ http://localhost:5000https://api-contatos-1.onrender.com
 
 ---
 
-## 🧑‍💻 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 - **Python 3**
 - **Flask**
@@ -289,7 +289,10 @@ http://localhost:5000https://api-contatos-1.onrender.com
 
 ---
 
-## 🚀 Autor
+##  Autor
+Bianca Torrers
+Carlos Henrique
+Joaquim Oliveira
 
 **Joaquim Oliveira**  
 📧 [GitHub](https://github.com/joaquimoliveira22)
