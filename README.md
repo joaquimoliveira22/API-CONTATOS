@@ -290,9 +290,8 @@ http://localhost:5000https://api-contatos-1.onrender.com
 ---
 
 ##  Autor
-Bianca Torrers
-Carlos Henrique
-Joaquim Oliveira
+**Bianca Torrers**
+**Carlos Henrique**
+**Joaquim Oliveira**
 
-**Joaquim Oliveira**  
-📧 [GitHub](https://github.com/joaquimoliveira22)
+
