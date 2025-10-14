@@ -266,7 +266,7 @@ python api.py
 
 A API estará disponível em:
 ```
-http://localhost:5000https://api-contatos-1.onrender.com
+http://localhost:5000
 ```
 
 ---
