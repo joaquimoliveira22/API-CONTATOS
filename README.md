@@ -8,7 +8,7 @@ Foi desenvolvida com **Flask + SQLAlchemy** e está hospedada no **Render**.
 ##  URL Base
 
 ```
-https://<seu-projeto-no-render>.onrender.com
+https:onrender.com
 ```
 
 ---
